@@ -10,7 +10,8 @@ namespace WebApiWithDI.Initializers
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            var context = (TodoContext)serviceProvider.GetService(typeof(TodoContext));
+            var context = (TodoContext)serviceProvider.
+                GetService(typeof(TodoContext));
             
                 var todoItem1 = new Models.TodoItem
                 {

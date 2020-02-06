@@ -17,14 +17,19 @@ namespace WebApiWithDI
         {
             var host=CreateHostBuilder(args)
                 .Build();
-               
 
+            
             using (var scope= host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-               // var context = services.
-                 //   GetRequiredService<TodoContext>();
-                DbInitializer.Initialize(services);
+                // var context = services.
+                //   GetRequiredService<TodoContext>();
+                var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", EnvironmentVariableTarget.User);
+                if (environment == "Development")
+                {
+                    DbInitializer.Initialize(services);
+                }
+
             }
 
             host.Run();

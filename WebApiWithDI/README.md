@@ -7,7 +7,7 @@ EnvironmentVariableTarget.User);
 
 2.Ejecutar el contenedor de docker de Sql Server
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password"
- -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+ -p 1434:1433 -d mcr.microsoft.com/mssql/server:2017-latest
 
 3.Url que se ejecuta por defecto
 /api/TodoItemSqlServers
@@ -39,3 +39,6 @@ update-database -Context WebApiWithDI.SqlServerTodoContext
 
 https://localhost:44344/api/TodoItem
 https://localhost:44344/api/TodoItemSqlServers
+
+Health Check Implementation
+https://medium.com/it-dead-inside/implementing-health-checks-in-asp-net-core-a8331d16a180
